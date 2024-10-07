@@ -13,4 +13,4 @@ INSERT INTO event_stats (date, user_id, total_spend_amt)
     FROM event_stats_staging
     ON DUPLICATE KEY UPDATE total_spend_amt = VALUES(total_spend_amt);
 
-DROP TABLE event_stats_staging;
+DROP TABLE IF EXISTS event_stats_staging;
