@@ -1,0 +1,36 @@
+CREATE DATABASE IF NOT EXISTS airflow_demo;
+
+USE airflow_demo;
+
+DROP TABLE IF EXISTS event;
+CREATE TABLE IF NOT EXISTS event (
+    event_id INT,
+    spend_amt FLOAT,
+    user_id INT,
+    date DATE
+);
+
+DROP TABLE IF EXISTS event_stats;
+CREATE TABLE IF NOT EXISTS event_stats (
+    date DATE,
+    user_id INT,
+    total_spend_amt FLOAT
+);
+
+INSERT INTO event VALUES
+(1,  34.36, 2,   CURRENT_DATE()),
+(2,  94.92, 2,   CURRENT_DATE()),
+(3,  70.76, 9,   CURRENT_DATE()),
+(4,  34.26, 7,   CURRENT_DATE()),
+(5,  58.36, 1,   CURRENT_DATE()),
+(6,  39.64, 2,   CURRENT_DATE()),
+(7,  64.83, 10,  CURRENT_DATE()),
+(8,  39.33, 1,   CURRENT_DATE()),
+(9,  100,   -99, CURRENT_DATE()),
+(9,  69.06, 10,  ADDDATE(CURRENT_DATE(), 1)),
+(10, 63.79, 3,   ADDDATE(CURRENT_DATE(), 1)),
+(11, 40.87, 3,   ADDDATE(CURRENT_DATE(), 1)),
+(12, 32.76, 10,  ADDDATE(CURRENT_DATE(), 1)),
+(13, 11.84, 3,   ADDDATE(CURRENT_DATE(), 1)),
+(14, 88.07, 2,   ADDDATE(CURRENT_DATE(), 1)),
+(15, 100,   -99, ADDDATE(CURRENT_DATE(), 1));
