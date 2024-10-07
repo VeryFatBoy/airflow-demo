@@ -14,7 +14,8 @@ DROP TABLE IF EXISTS event_stats;
 CREATE TABLE IF NOT EXISTS event_stats (
     date DATE,
     user_id INT,
-    total_spend_amt FLOAT
+    total_spend_amt FLOAT,
+    PRIMARY KEY (date, user_id)
 );
 
 INSERT INTO event VALUES
